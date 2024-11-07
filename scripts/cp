@@ -1,0 +1,88 @@
+read -p "Name : " folder_name
+
+if [ -d "$folder_name" ]; then
+   echo "❌ Folder '$folder_name' already exists. Operation aborted."
+   exit 1
+fi
+
+mkdir $folder_name
+touch $folder_name/input.txt
+touch $folder_name/output.txt
+
+cat > $folder_name/debug.h << EOL
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void __print(int x) {cout << x;}
+void __print(long x) {cout << x;}
+void __print(long long x) {cout << x;}
+void __print(unsigned x) {cout << x;}
+void __print(unsigned long x) {cout << x;}
+void __print(unsigned long long x) {cout << x;}
+void __print(float x) {cout << x;}
+void __print(double x) {cout << x;}
+void __print(long double x) {cout << x;}
+void __print(char x) {cout << '\'' << x << '\'';}
+void __print(const char *x) {cout << '\"' << x << '\"';}
+void __print(const string &x) {cout << '\"' << x << '\"';}
+void __print(bool x) {cout << (x ? "true" : "false");}
+
+template<typename T, typename V>
+void __print(const pair<T, V> &x) {cout << '{'; __print(x.first); cout << ','; __print(x.second); cout << '}';}
+template<typename T>
+void __print(const T &x) {int f = 0; cout << '{'; for (auto &i: x) cout << (f++ ? "," : ""), __print(i); cout << "}";}
+void _print() {cout << "]\n";}
+template <typename T, typename... V>
+void _print(T t, V... v) {__print(t); if (sizeof...(v)) cout << ", "; _print(v...);}
+EOL
+
+cat > $folder_name/main.cpp <<EOL
+#include <bits/stdc++.h>
+#ifndef ONLINE_JUDGE
+#include "debug.h"
+#endif
+ 
+using namespace std;
+ 
+/* clang-format off */
+#define ll long long
+#define pll pair<long long, long long>
+#define vi vector<int>
+#define vll vector<long long>
+#define mii map<int, int>
+#define pb push_back
+#define MOD 1000000007
+#define endl "\n"
+ll min(ll a,int b) { if (a<b) return a; return b; }
+ll min(int a,ll b) { if (a<b) return a; return b; }
+ll max(ll a,int b) { if (a>b) return a; return b; }
+ll max(int a,ll b) { if (a>b) return a; return b; }
+void yes() { cout<<"YES\n"; }
+void no() { cout<<"NO\n"; }
+#define all(a) (a).begin(), (a).end()
+#define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define io freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
+#ifndef ONLINE_JUDGE
+#define dbg(x...) cout << "[" << #x << "] = ["; _print(x)
+#else
+#define dbg(x...)
+#endif
+/* clang-format on */
+
+void solve(){
+    // code here
+}
+
+int main(){
+  fast_io;
+#ifndef ONLINE_JUDGE
+  io;
+#endif
+  int t;cin>>t;
+  while(t--) solve();
+}
+EOL
+
+cd $folder_name
+nvim output.txt -c 'vsplit main.cpp | wincmd l | split input.txt | wincmd h | vertical resize 120'

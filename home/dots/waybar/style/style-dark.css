@@ -1,0 +1,135 @@
+@import "style/catppuccin-mocha.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0; /* This ensures no minimum height restriction */
+}
+
+window#waybar {
+    background: rgba(12, 4, 4, 0.7);
+    color: @foreground;
+    border-radius: 0px;
+    padding: 2px 5px;
+}
+
+tooltip {
+    background: #1e1e2e;
+    opacity: 0.8;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #11111b;
+}
+
+tooltip label{
+    color: #cdd6f4;
+}
+
+#workspaces {
+  background: transparent;
+  margin: 0 5px;
+}
+
+#workspaces button {
+  padding: 0 3px;
+  color: #cdd6f4;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+  color: #f5c2e7;
+  border-bottom: 2px solid #f5c2e7;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #94e2d5;
+  border-bottom: 2px solid #94e2d5;
+}
+
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-weather,
+#window,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#workspaces,
+#backlight {
+    opacity: 0.8;
+    padding: 2px 10px;
+    border: 0px;
+    background: transparent;
+}
+
+#clock, #custom-lock_screen, #custom-power_btn {
+  color : #fff;
+}
+
+#backlight {
+  color: @pink;
+}
+
+#cpu,
+#memory,
+#disk{
+  color : @sky;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#custom-power_profile {
+    color: @green;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#window {
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#custom-launch_wofi {
+    color: @red;
+    margin-left: 10px;
+}
+
+#pulseaudio {
+    color: @sky;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    color: @blue;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#battery {
+    color: @sapphire;
+    border-left: 0px;
+}

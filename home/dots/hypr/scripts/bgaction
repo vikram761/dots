@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+swww-daemon || swww init
+
+THEMEIS=$(readlink -f ~/.config/waybar/style.css | cut -d '-' -f2)
+
+if [ $THEMEIS == "dark.css" ]; then
+    swww img ~/.config/hypr/wallpapers/wallpaper-dark.jpg
+else
+    swww img ~/.config/hypr/wallpapers/wallpaper.jpg
+fi

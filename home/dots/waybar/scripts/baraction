@@ -1,0 +1,34 @@
+#!/bin/bash
+
+CURRENT_THEME=$(readlink -f ~/.config/waybar/style.css)
+if [[ "$CURRENT_THEME" == *"-dark.css" ]]; then
+    NEW_THEME=""
+    dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+    dconf write /org/gnome/desktop/interface/icon-theme "'Numix'"
+    dconf write /org/gnome/desktop/interface/color-scheme "'default'"
+    echo "Switching to light theme"
+else
+    NEW_THEME="-dark"
+    dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
+    dconf write /org/gnome/desktop/interface/icon-theme "'Numix'"
+    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+    echo "Switching to dark theme"
+fi
+
+if ln -sf ~/.config/waybar/style/style${NEW_THEME}.css ~/.config/waybar/style.css; then
+    echo "Waybar theme switched successfully"
+else
+    echo "Failed to switch Waybar theme"
+fi
+
+ln -sf ~/.config/wofi/style/style${NEW_THEME}.css ~/.config/wofi/style.css
+
+if [[ "$NEW_THEME" == "-dark" ]]; then
+    swww img ~/.config/hypr/wallpapers/wallpaper-dark.jpg --transition-fps 30 --transition-type wipe --transition-duration 1.75
+else
+    swww img ~/.config/hypr/wallpapers/wallpaper.jpg --transition-fps 30 --transition-type wipe --transition-duration 1.75
+fi
+
+pkill waybar
+sleep 0.2  
+waybar &>/dev/null & disown

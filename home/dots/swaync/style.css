@@ -1,0 +1,100 @@
+.notification-row {
+  outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.notification {
+  border-radius: 8px;
+  margin: 6px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  padding: 0;
+}
+
+.notification-content {
+  background: transparent;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.notification-default-action,
+.notification-action {
+  padding: 4px;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  -gtk-icon-effect: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.notification-default-action {
+  border-radius: 8px;
+}
+
+.notification-action {
+  border-radius: 8px;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+.notification-action:last-child {
+  margin-right: 0;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+
+.inline-reply-entry {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  caret-color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.inline-reply-button {
+  margin-left: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.inline-reply-button:disabled {
+  background: initial;
+  color: initial;
+  border: initial;
+}
+
+.inline-reply-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
